@@ -3,16 +3,13 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>
-        Music Blocks
-    </title>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
     <meta name="description"
         content="Learn to code through music with Music Blocks. Arrange colorful blocks to create everything from simple melodies to interactive games.">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2196F3">
+    <meta name="mobile-web-app-capable" content="yes" >
+    <meta id="theme-color" name="theme-color" content="#2196F3" >
     <title>Music Blocks</title>
 
     <!-- Icons & PWA -->
@@ -33,11 +30,21 @@
     <link rel="preload" as="video" href="loading-animation.webm" type="video/webm">
     <link rel="preload" as="video" href="loading-animation.mp4" type="video/mp4">
     <link rel="preload" as="image" href="loading-animation-ja.svg">
+    <link rel="prefetch" type="application/l10n" href="./localization.ini" >
 
-    <!-- Fallback for browsers that don't support preload -->
-    <noscript>
-        JavaScript is required to view this page.
-    </noscript>
+    <script data-main="js/loader" src="lib/require.js" defer></script>
+
+    <link rel="apple-touch-icon" href="/activity/activity-icon-color-512.png">
+    <link rel="manifest" href="android_chrome_manifest.json" >
+    
+    <link rel="icon" sizes="192x192" href="favicon.ico" >
+    
+
+    <link type="text/css" href="fonts/material-icons.css" rel="stylesheet" >
+    <link rel="preload" href="/fonts/material-icons.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="lib/materialize-iso.css" >
+    <link rel="stylesheet" href="css/themes.css" >
+
 
     <!-- <script src="js/utils/detectIE.js"></script> -->
 
@@ -76,20 +83,7 @@
 
     <script src="lib/astring.min.js" defer></script>
 
-    <link rel="prefetch" type="application/l10n" href="./localization.ini" />
-
-    <script data-main="js/loader" src="lib/require.js" defer></script>
-
-    <link rel="apple-touch-icon" href="/activity/activity-icon-color-512.png">
-    <link rel="manifest" href="android_chrome_manifest.json" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <link rel="icon" sizes="192x192" href="favicon.ico" />
-    <meta id="theme-color" name="theme-color" content="#2196F3" />
-
-    <link type="text/css" href="fonts/material-icons.css" rel="stylesheet" />
-    <link rel="preload" href="/fonts/material-icons.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="stylesheet" href="lib/materialize-iso.css" />
-    <link rel="stylesheet" href="css/themes.css" />
+    
 
     <script src="lib/easeljs.min.js" defer></script>
 
@@ -128,7 +122,7 @@
             }
         }
     </script>
-    <script type="text/javascript">
+    <script >
         $(document).ready(function () {
             doSearch();
         });
@@ -136,17 +130,21 @@
 </head>
 
 <!-- #96D3F3-->
-<div style="display: none;" id="chooseKeyDiv" tabindex="-1">
-</div>
-<div id="movable" tabindex="-1">
-    <p>Solfege Pitch Preview</p>
-    <input class="radioBtn" type="radio" name="movable" value="true" id="movabledo">
-    <label for="movabledo">Movable Do</label>
-    <input class="radioBtn" type="radio" name="movable" id="fixed" checked="checked" value="false">
-    <label for="fixed">Fixed</label>
-</div>
 
-<body id="body" onload="init();" data-title="index" id="body" style="background: #f9f9f9;">
+<body id="body" onload="init();" data-title="index" style="background: #f9f9f9;">
+    <div style="display: none;" id="chooseKeyDiv" tabindex="-1">
+    </div>
+    <div id="movable" tabindex="-1">
+        <p>Solfege Pitch Preview</p>
+        <input class="radioBtn" type="radio" name="movable" value="true" id="movabledo">
+        <label for="movabledo">Movable Do</label>
+        <input class="radioBtn" type="radio" name="movable" id="fixed" checked="checked" value="false">
+        <label for="fixed">Fixed</label>
+    </div>
+        <!-- Fallback for browsers that don't support preload -->
+        <noscript>
+            JavaScript is required to view this page.
+        </noscript>
     <div id="loading-image-container"
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #FFFFFF; z-index: 9999; contain: paint;">
         <div id="loading-media" style="width: 100%; padding: 0 20px; box-sizing: border-box;"></div>
@@ -249,7 +247,7 @@
                         $t_fixed;
 
                     function init() {
-                        $this.wrap('<div class="container" />');
+                        $this.wrap('<div class="container" >');
                         $t_fixed = $this.clone();
                         $t_fixed
                             .find("tbody")
@@ -320,22 +318,22 @@
     </script>
 
     <!-- #92B5C8  width = 3790 height = 1743-->
-    <canvas id="canvas" width="100%" height="100%" style="background-color:#FFFFFF; width:100%">
+    <canvas id="canvas" width="3790" height="1743" style="background-color:#FFFFFF; width:100%; height: 100%;">
     </canvas>
 
     <!--hidden at the beginning whilst everything loads-->
     <div id="hideContents" style="display: none;" tabindex="-1">
         <div class="canvasHolder" id="canvasHolder">
             <div class="popupMsg" id="printText" tabindex="-1">
-                <div class="contentWrapper">
+                <div class="contentWrapper">center
                     <span id="printTextContent"></span>
-                    <img class="msgCloseIcon" onclick="hidePrintText()" src="images/close.svg" alt="Close" />
+                    <img class="msgCloseIcon" onclick="hidePrintText()" src="images/close.svg" alt="Close" >
                 </div>
             </div>
             <div class="popupMsg" id="errorText" tabindex="-1">
                 <div class="contentWrapper">
                     <span id="errorTextContent"></span>
-                    <img class="msgCloseIcon" onclick="hideErrorText()" src="images/close.svg" alt="Close" />
+                    <img class="msgCloseIcon" onclick="hideErrorText()" src="images/close.svg" alt="Close" >
                 </div>
             </div>
 
@@ -363,7 +361,7 @@
                 <canvas id="myCanvas" width="1200" height="900"> </canvas>
             </div>
             <!--Load Animation Container-->
-            <center>
+            <div style="text-align: center;">
                 <div id="load-container">
                     <div id="load-content">
                         <p id="messageText"></p>
@@ -371,16 +369,16 @@
                         </amp-img>
                     </div>
                 </div>
-            </center>
+            </div>
 
             <canvas id="overlayCanvas" width="1200" height="900"
                 style="position:absolute; pointer-events:none; left:0; top:0; z-index:-100; visibility:hidden;">
             </canvas>
 
-            <canvas id="myChart" width="600" height="600" tabindex="-1" tabindex="-1">
+            <canvas id="myChart" width="600" height="600" tabindex="-1" >
             </canvas>
 
-            <video id="camVideo" style="visibility:hidden;" tabindex="-1" tabindex="-1"></video>
+            <video id="camVideo" style="visibility:hidden;" tabindex="-1" ></video>
 
             <canvas id="camCanvas" style="visibility:hidden;" tabindex="-1">
             </canvas>
@@ -392,16 +390,14 @@
             <div id="textLabel" tabindex="-1"></div>
 
             <div id="ioDiv" style="display:none" tabindex="-1">
-                <input class="file" type="file" id="myMedia" accept="image/*" tabindex="-1" />
-                <input class="file" type="file" id="myOpenFile" accept=".ta, .tb, .html,.mid,.midi" tabindex="-1" />
-                <input class="file" type="file" id="myOpenPlugin" accept=".json" tabindex="-1" />
-                <input class="file" type="file" id="audio" accept=".mp3, .wav" tabindex="-1" />
-                <input class="file" type="file" id="myOpenAll" tabindex="-1" />
+                <input class="file" type="file" id="myMedia" accept="image/*" tabindex="-1" >
+                <input class="file" type="file" id="myOpenFile" accept=".ta, .tb, .html,.mid,.midi" tabindex="-1" >
+                <input class="file" type="file" id="myOpenPlugin" accept=".json" tabindex="-1" >
+                <input class="file" type="file" id="audio" accept=".mp3, .wav" tabindex="-1" >
+                <input class="file" type="file" id="myOpenAll" tabindex="-1" >
             </div>
         </div>
         <!-- canvasHolder -->
-
-        <div id="audio" tabindex="-1"></div>
 
         <div id="tourData" tabindex="-1"></div>
 
@@ -436,9 +432,9 @@
 
         <div id="pastecode" tabindex="-1">
             <input type="text" name="paste" id="paste" class="ui-autocomplete"
-                placeholder="Paste Music Blocks code here" style="visibility: false" tabindex="-1" />
+                placeholder="Paste Music Blocks code here" style="visibility: hidden" tabindex="-1" >
             <ul class="matches"></ul>
-            <input onkeypress="doPaste()" type="submit" value="" tabindex="-1" />
+            <input onkeypress="doPaste()" type="submit" value="" tabindex="-1" >
         </div>
 
         <div id="myProgress" tabindex="-1">
@@ -450,19 +446,19 @@
             <div class="modal-content" tabindex="-1">
                 <span class="close">&times;</span>
                 <div id="fileNameText"></div>
-                <input type="text" id="fileName" tabindex="-1" />
+                <input type="text" id="fileName" tabindex="-1" >
                 <p></p>
                 <div id="titleText"></div>
-                <input type="text" id="title" tabindex="-1" />
+                <input type="text" id="title" tabindex="-1" >
                 <p></p>
                 <div id="authorText"></div>
-                <input type="text" id="author" tabindex="-1" />
+                <input type="text" id="author" tabindex="-1" >
                 <p></p>
                 <div id="MIDIText"></div>
-                <input type="checkbox" id="MIDICheck" tabindex="-1" />
+                <input type="checkbox" id="MIDICheck" tabindex="-1" >
                 <p></p>
                 <div id="guitarText"></div>
-                <input type="checkbox" id="guitarCheck" tabindex="-1" />
+                <input type="checkbox" id="guitarCheck" tabindex="-1" >
                 <p></p>
                 <p><button class = "confirm-button" id="submitLilypond"></button></p>
                 <!-- <button id="submitPDF"></button></p> -->
@@ -470,7 +466,7 @@
         </div>
 
         <div class="materialize-iso" tabindex="-1">
-            <nav id="toolbars" class="nav-wrapper" role="navigation">
+            <nav id="toolbars" class="nav-wrapper" >
                 <div class="blue nav-wrapper" tabindex="-1">
                     <div
                         id="mb-logo"
@@ -513,7 +509,7 @@
                                 onclick="setIcon()"
                                 ><i class="material-icons"
                                     id="FullScrIcon"
-                                    >&#xe5d0;</i
+                                    >fullscreen</i
                                 ></a
                             >
                         </li>
@@ -535,17 +531,6 @@
                                 data-position="bottom"
                                 ><i class="material-icons md-48"
                                     >folder</i
-                                ></a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                id="saveButton"
-                                class="tooltipped dropdown-trigger"
-                                data-position="left"
-                                data-activates="saveddropdownbeg"
-                                ><i id="save" class="material-icons md-48"
-                                    >save_alt</i
                                 ></a
                             >
                         </li>
@@ -841,10 +826,9 @@
                 <li><a id="ur"></a></li>
             </ul>
 
-            <ul style="display: none;" id="themedropdown" class="dropdown-content">
-                <a id="light" class="tooltipped" data-tooltip="Light Mode"><i
-                        class='material-icons'>brightness_7</i></a>
-                <a id="dark" class="tooltipped" data-tooltip="Dark Mode"><i class='material-icons'>brightness_4</i></a>
+            <ul id="themedropdown" class="dropdown-content">
+                <li><a id="light" class="tooltipped" data-tooltip="Light Mode"><i class="material-icons">brightness_7</i></a></li>
+                <li><a id="dark" class="tooltipped" data-tooltip="Dark Mode"><i class="material-icons">brightness_4</i></a></li>
             </ul>
 
             <div id="modal-container" style="display: none;z-index: 999;">
@@ -946,13 +930,13 @@
 
               function togglePlayOnlyMode() {
                 const isSmallScreen = (window.innerWidth < 768) || (window.innerHeight < 600);
-                const body = document.body;
+                const Docbody = document.body;
                 const homeButton = document.getElementById("Home [HOME]");
                 const buttonContainer = document.getElementById("buttoncontainerBOTTOM");
 
                 if (isSmallScreen) {
                   // Enable play-only mode
-                  body.classList.add("play-only");
+                  Docbody.classList.add("play-only");
                   showPersistentNotification();
 
                   if (buttonContainer) {
@@ -997,18 +981,19 @@
               window.addEventListener("resize", togglePlayOnlyMode);
             });
             </script>
-
+    <footer>
         <div id="searchBar" tabindex="-1">
             <input
-                type="text"
-                name="search"
-                id="search"
-                class="ui-autocomplete"
-                placeholder="Search for Blocks"
-                tabindex="-1"
-            />
+            type="text"
+            name="search"
+            id="search"
+            class="ui-autocomplete"
+            placeholder="Search for Blocks"
+            tabindex="-1"
+            >
             <ul class="matches" id="searchResults"></ul>
         </div>
+    </footer>
 
 </body>
 
